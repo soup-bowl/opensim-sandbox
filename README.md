@@ -1,6 +1,8 @@
 # OpenSimuator Configuration Sandbox
 Some example [OpenSimulator][os] configuration setups, using [Docker][docker] (should also be compatible with [Podman][podman]) for quick prototyping.
 
+For accessing the OpenSimulator metaverse, I recommend [Firestorm Viewer](https://www.firestormviewer.org/os-operating-system/).
+
 ## Experiments
 
 Each folder contains a docker-compose file that will setup the OpenSimulator prototype.
