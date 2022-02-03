@@ -28,7 +28,7 @@ MySQL and MariaDB may take longer to initiate than OpenSimulator is able to wait
 
 ### I'm not able to run commands in the OpenSimulator prompt
 
-(In most instances, [wait-for-it][wfi] has been added to the buils to stop this situation from happening).
+(In most instances, [wait-for-it][wfi] has been added to the builds to stop this situation from happening).
 
 You are able to attach a shell to the current entrypoint, but so far this doesn't seem to work for me. You can 'cheese' this process by adding [screen][screen], allowing you to 'resume' the actively running session. To do this, replace the entrypoint in the Dockerfile to this:
 

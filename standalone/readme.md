@@ -1,4 +1,4 @@
-## OpenSimulator - Standalone
+# OpenSimulator - Standalone
 
 This experiment runs OpenSimulator in the most basic format - [standalone mode](http://opensimulator.org/wiki/Configuration). Best mode for getting started with OpenSimulator.
 
