@@ -30,7 +30,7 @@ OpenSimulator will load in our three configuration files. Left untouched, it wil
 * Create a Region at vector point 1000,1000 (what does this mean? [Sheldon explains it well](https://youtu.be/Xk_sAi9mgxg?t=24)).
   * We also tie an estate owner account to be created with this region, called **Govenor Linden** (play on the [Linden Labs NPC](https://secondlife.fandom.com/wiki/Governor_Linden)). 
 
-Open started, you 
+Open started, you can point your OpenSimulator viewer to `localhost:9000` and connect with credentials **Governor Linden** and **password**.
 
 ## Changing configurations
 
