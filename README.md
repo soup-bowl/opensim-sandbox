@@ -28,6 +28,8 @@ MySQL and MariaDB may take longer to initiate than OpenSimulator is able to wait
 
 ### I'm not able to run commands in the OpenSimulator prompt
 
+(In most instances, [wait-for-it][wfi] has been added to the buils to stop this situation from happening).
+
 You are able to attach a shell to the current entrypoint, but so far this doesn't seem to work for me. You can 'cheese' this process by adding [screen][screen], allowing you to 'resume' the actively running session. To do this, replace the entrypoint in the Dockerfile to this:
 
 ```
@@ -38,5 +40,6 @@ You can now access the OpenSimulator admin prompt by running `docker-compose exe
 
 [os]:     http://opensimulator.org/wiki/Main_Page
 [docker]: https://www.docker.com/
+[wfi]:    https://github.com/docker/docker.github.io/blob/master/compose/startup-order.md
 [podman]: https://podman.io/blogs/2021/01/11/podman-compose.html
 [screen]: https://www.howtogeek.com/662422/how-to-use-linuxs-screen-command/
