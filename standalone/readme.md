@@ -2,7 +2,7 @@
 
 This experiment runs OpenSimulator in the most basic format - [standalone mode](http://opensimulator.org/wiki/Configuration). Best mode for getting started with OpenSimulator.
 
-**Check the repository root readme for answers to most questions.**
+**[Check the repository root readme](/../../) for answers to most questions.**
 
 ## What this will do
 
