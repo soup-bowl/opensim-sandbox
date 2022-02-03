@@ -1,5 +1,5 @@
 # OpenSimuator Configuration Sandbox
-Some example [OpenSimulator][os] configuration setups, using Docker for quick prototyping.
+Some example [OpenSimulator][os] configuration setups, using [Docker][docker] (should also be compatible with [Podman][podman]) for quick prototyping.
 
 ## Experiments
 
@@ -35,4 +35,6 @@ ENTRYPOINT [ "screen", "-S", "OpenSim", "-D", "-m", "mono",  "./OpenSim.exe" ]
 You can now access the OpenSimulator admin prompt by running `docker-compose exec metaverse /bin/bash` and then running `screen -r OpenSim`.
 
 [os]:     http://opensimulator.org/wiki/Main_Page
+[docker]: https://www.docker.com/
+[podman]: https://podman.io/blogs/2021/01/11/podman-compose.html
 [screen]: https://www.howtogeek.com/662422/how-to-use-linuxs-screen-command/
