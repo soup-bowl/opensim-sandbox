@@ -11,9 +11,11 @@ Folder                        | Purpose
 ------------------------------|--------
 [standalone][os-s]            | Sets up an OpenSimulator instance in standalone mode, using MySQL (mariadb 10.5) as the storage engine.
 [standalone-wordpress][os-wp] | Same as Standalone, but has a WordPress instance prepped to control the userbase.
+[grid][os-g]                  | OpenSim grid managed by a Robust instance.
 
 [os-s]:  standalone
 [os-wp]: standalone-wordpress
+[os-g]:  grid
 
 ## Using Docker Compose / Cheat Sheet
 

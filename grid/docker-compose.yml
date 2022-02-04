@@ -1,0 +1,46 @@
+version: '3.6'
+services:
+  db:
+    image: docker.io/library/mariadb:10.5
+    volumes:
+    - "database_store:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: metaverse
+      MYSQL_ROOT_PASSWORD: password
+  db_pma:
+    image: docker.io/phpmyadmin/phpmyadmin:latest
+    depends_on:
+    - db
+    ports:
+    - 8081:80
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      PMA_USER: root
+      PMA_PASSWORD: password
+  metaverse:
+    depends_on:
+    - db
+    build:
+      context: ./docker
+      dockerfile: OS.Dockerfile
+    ports:
+    - "9000:9000"
+    - "9000:9000/udp"
+  robust:
+    depends_on:
+    - db
+    build:
+      context: ./docker
+      dockerfile: R.Dockerfile
+    ports:
+    - "8002:8002"
+    - "8002:8002/udp"
+  www:
+    image: nginx:latest
+    volumes:
+    - "./www:/usr/share/nginx/html:ro"
+    ports:
+    - 8080:80
+
+volumes:
+  database_store:
