@@ -10,7 +10,6 @@ RUN mkdir /opt/opensim && mv /opt/opensim-tmp/opensim*/* /opt/opensim
 
 COPY Regions.ini      /opt/opensim/bin/Regions/Regions.ini
 COPY OpenSim.ini      /opt/opensim/bin/OpenSim.ini
-COPY Grid.ini         /opt/opensim/bin/config-include/Grid.ini
 COPY GridCommon.ini   /opt/opensim/bin/config-include/GridCommon.ini
 
 EXPOSE 9000
