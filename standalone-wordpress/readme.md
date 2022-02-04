@@ -1,8 +1,8 @@
 # OpenSimulator - Standalone + WordPress
 
-This runs the same expertiment as the [Standalone instance](/../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
+This runs the same expertiment as the [Standalone instance](../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
 
-**[Check the repository root readme](/../../) for answers to most questions.**
+**Check the repository root readme for answers to most questions.**
 
 ## What this will do
 
@@ -26,7 +26,7 @@ Once the `docker-compose up` command is reporting all instances as done, you can
 
 ### OpenSimulator
 
-*For more information, see the [Standalone instance](/../standalone).*
+*For more information, see the [Standalone instance](../standalone).*
 
 ## Changing configurations
 
