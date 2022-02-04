@@ -24,6 +24,10 @@ The compose script will do the following:
 
 Once the `docker-compose up` command is reporting all instances as done, you can visit the grid info page at [localhost:8080](http://localhost:8080).
 
+### WordPress
+
+Log in with the administration account (admin/password), and go to either edit an existing user, or create a new one. You should have the option to specify an avatar first and last name. **If you are editing a user, click to generate a new password**, and the OpenSimulator plugin will pass the avatar name and password configuration to the [XMLRPC RemoteAdmin](http://opensimulator.org/wiki/RemoteAdmin) endpoint. This should then create a user for you on the grid.
+
 ### OpenSimulator
 
 *For more information, see the [Standalone instance](../standalone#opensimulator).*
