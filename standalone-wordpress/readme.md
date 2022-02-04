@@ -26,7 +26,7 @@ Once the `docker-compose up` command is reporting all instances as done, you can
 
 ### OpenSimulator
 
-*For more information, see the [Standalone instance](../standalone).*
+*For more information, see the [Standalone instance](../standalone#opensimulator).*
 
 ## Changing configurations
 
