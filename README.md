@@ -7,9 +7,13 @@ For accessing the OpenSimulator metaverse, I recommend [Firestorm Viewer](https:
 
 Each folder contains a docker-compose file that will setup the OpenSimulator prototype.
 
-Folder                    | Purpose
---------------------------|--------
-[standalone](/standalone) | Sets up an OpenSimulator instance in standalone mode, using MySQL (mariadb 10.5) as the storage engine.
+Folder                        | Purpose
+------------------------------|--------
+[standalone][os-s]            | Sets up an OpenSimulator instance in standalone mode, using MySQL (mariadb 10.5) as the storage engine.
+[standalone-wordpress][os-wp] | Same as Standalone, but has a WordPress instance prepped to control the userbase.
+
+[os-s]:  standalone
+[os-wp]: standalone-wordpress
 
 ## Using Docker Compose / Cheat Sheet
 
