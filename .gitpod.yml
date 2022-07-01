@@ -1,0 +1,10 @@
+tasks:
+  - init: |
+      docker-compose -f ./standalone/docker-compose.yml -f ./standalone-wordpress/docker-compose.yml pull
+      docker-compose -f ./standalone/docker-compose.yml build
+      docker-compose -f ./standalone-wordpress/docker-compose.yml build
+ports:
+  - port: 9000
+    visibility: public
+  - port: 8080
+    visibility: public
