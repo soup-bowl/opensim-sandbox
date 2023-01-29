@@ -18,14 +18,16 @@ services:
       PMA_USER: root
       PMA_PASSWORD: password
   metaverse:
+    image: docker.io/soupbowl/opensimulator:edge
     depends_on:
-    - db
-    build:
-      context: ./docker
-      dockerfile: OS.Dockerfile
+      - db
     ports:
     - "9000:9000"
     - "9000:9000/udp"
+    volumes:
+    - "./docker/OpenSim.ini:/opt/opensim/bin/OpenSim.ini"
+    - "./docker/Regions.ini:/opt/opensim/bin/Regions/Regions.ini"
+    - "./docker/StandaloneCommon.ini:/opt/opensim/bin/config-include/StandaloneCommon.ini"
   wordpress:
     depends_on:
     - db
