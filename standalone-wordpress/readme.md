@@ -1,6 +1,6 @@
 # OpenSimulator - Standalone + WordPress
 
-This runs the same expertiment as the [Standalone instance](../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
+This runs the same experiment as the [Standalone instance](../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
 
 **Check the repository root readme for answers to most questions.**
 
