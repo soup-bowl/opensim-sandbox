@@ -18,7 +18,7 @@ services:
       PMA_USER: root
       PMA_PASSWORD: password
   metaverse:
-    image: docker.io/soupbowl/opensimulator:edge
+    image: docker.io/soupbowl/opensimulator:latest
     depends_on:
       - db
     ports:
