@@ -8,15 +8,15 @@ This experiment runs OpenSimulator in grid mode, using a central [Robust instanc
 
 The Robust instance needs to be told about a user account before initialising. So to begin the experiment, do the following:
 
-* Run `docker-compose up --build -d db db_pma robust`.
-* Run `docker-compose exec robust screen -r` to enter Robust server command mode.
+* Run `docker compose up --build -d db db_pma robust`.
+* Run `docker compose exec robust screen -r` to enter Robust server command mode.
 * Type `create user` and press enter.
   * **Governor** for first name.
   * **Linden** for last name.
   * Password is your choice, but it's safe for you to just use **password**.
   * Skip (press enter) for the rest.
 * Close the connection (just close the command prompt).
-* Start a new session, and run `docker-compose up -d` to start-up the remaining grid instances.
+* Start a new session, and run `docker compose up -d` to start-up the remaining grid instances.
 
 ## What this will do
 
@@ -24,9 +24,7 @@ The Robust instance needs to be told about a user account before initialising. S
 
 The compose script will do the following:
 
-* Builds a container, based on the [Mono image](https://hub.docker.com/_/mono/), to run OpenSimulator.
-  * Wait for It is added so that our container checks the database has started up before it begins starting up OpenSim.
-  * The build process picks up the **3 configuration files** and adds them to a directory within the container, so OpenSim can use them.
+* Starts up two copies of **[OpenSimulator](http://opensimulator.org/wiki/Main_Page)** server, using an [OpenSimulator Docker image](https://hub.docker.com/r/soupbowl/opensimulator). One set into [Robust mode](http://opensimulator.org/wiki/ROBUST).
 * Starts up a copy of **[MariaDB Server 10.5](https://mariadb.org/)**.
   * You can swap to [MySQL](https://hub.docker.com/_/mysql/) if you prefer - they're largely compatible with each other.
   * Be aware of a [modern charset database limitation](http://opensimulator.org/mantis/view.php?id=8919) - this is why 10.5 is used.
