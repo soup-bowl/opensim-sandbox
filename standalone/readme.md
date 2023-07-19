@@ -11,7 +11,7 @@ This experiment runs OpenSimulator in the most basic format - [standalone mode](
 The compose script will do the following:
 
 * Starts up a **[OpenSimulator](http://opensimulator.org/wiki/Main_Page)** server, using an [OpenSimulator Docker image](https://hub.docker.com/r/soupbowl/opensimulator).
-  * Due to how slow MySQL is to initalise, you may need to re-run `docker-compose up`, otherwise the init fails due to the lack of a database.
+  * A health check is in place to ensure everything starts *after* MariaDB finishes.
 * Starts up a copy of **[MariaDB Server 10.5](https://mariadb.org/)**.
   * You can swap to [MySQL](https://hub.docker.com/_/mysql/) if you prefer - they're largely compatible with each other.
   * Be aware of a [modern charset database limitation](http://opensimulator.org/mantis/view.php?id=8919) - this is why 10.5 is used.

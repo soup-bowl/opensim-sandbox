@@ -11,7 +11,7 @@ This runs the same experiment as the [Standalone instance](../standalone), but c
 The compose script will do the following:
 
 * Starts up a **[OpenSimulator](http://opensimulator.org/wiki/Main_Page)** server, using an [OpenSimulator Docker image](https://hub.docker.com/r/soupbowl/opensimulator).
-  * Due to how slow MySQL is to initalise, you may need to re-run docker-compose up, otherwise the init fails due to the lack of a database.
+  * A health check is in place to ensure everything starts *after* MariaDB finishes.
   * The build process picks up the **3 configuration files** and adds them to a directory within the container, so OpenSim can use them.
 * Starts up a copy of **[MariaDB Server 10.5](https://mariadb.org/)**.
   * You can swap to [MySQL](https://hub.docker.com/_/mysql/) if you prefer - they're largely compatible with each other.
