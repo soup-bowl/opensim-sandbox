@@ -18,12 +18,22 @@ services:
       PMA_USER: root
       PMA_PASSWORD: password
   metaverse:
+    image: docker.io/soupbowl/opensimulator:latest
     depends_on:
-    - db
-    build: ./docker
+      - db
     ports:
     - "9000:9000"
     - "9000:9000/udp"
+    environment:
+      GRID_NAME: OpenSimulator Sandbox Standalone
+      GRID_WELCOME: Running OpenSimulator in Standalone Grid mode.
+      ESTATE_OWNER_NAME: Governor Linden
+      ESTATE_OWNER_PASSWORD: password
+      DATABASE_ENGINE: mysql
+      MYSQL_SERVER: db
+      MYSQL_DATABASE: metaverse
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
   www:
     image: nginx:latest
     volumes:
