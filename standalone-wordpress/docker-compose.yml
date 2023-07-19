@@ -7,10 +7,16 @@ services:
     environment:
       MYSQL_DATABASE: metaverse
       MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
   db_pma:
     image: docker.io/phpmyadmin/phpmyadmin:latest
     depends_on:
-    - db
+      db:
+        condition: service_healthy
     ports:
     - 8081:80
     environment:
@@ -20,7 +26,8 @@ services:
   metaverse:
     image: docker.io/soupbowl/opensimulator:latest
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
     - "9000:9000"
     - "9000:9000/udp"
@@ -30,7 +37,8 @@ services:
     - "./docker/StandaloneCommon.ini:/opt/opensim/bin/config-include/StandaloneCommon.ini"
   wordpress:
     depends_on:
-    - db
+      db:
+        condition: service_healthy
     build:
       context: ./docker
       dockerfile: WP.Dockerfile
