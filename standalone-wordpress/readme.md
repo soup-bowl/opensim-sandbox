@@ -1,6 +1,6 @@
 # OpenSimulator - Standalone + WordPress
 
-This runs the same expertiment as the [Standalone instance](../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
+This runs the same experiment as the [Standalone instance](../standalone), but couples with an instance of WordPress that can manage the userbase via XMLRPC.
 
 **Check the repository root readme for answers to most questions.**
 
@@ -10,8 +10,8 @@ This runs the same expertiment as the [Standalone instance](../standalone), but 
 
 The compose script will do the following:
 
-* Builds a container, based on the [Mono image](https://hub.docker.com/_/mono/), to run OpenSimulator.
-  * Wait for It is added so that our container checks the database has started up before it begins starting up OpenSim.
+* Starts up a **[OpenSimulator](http://opensimulator.org/wiki/Main_Page)** server, using an [OpenSimulator Docker image](https://hub.docker.com/r/soupbowl/opensimulator).
+  * A health check is in place to ensure everything starts *after* MariaDB finishes.
   * The build process picks up the **3 configuration files** and adds them to a directory within the container, so OpenSim can use them.
 * Starts up a copy of **[MariaDB Server 10.5](https://mariadb.org/)**.
   * You can swap to [MySQL](https://hub.docker.com/_/mysql/) if you prefer - they're largely compatible with each other.
