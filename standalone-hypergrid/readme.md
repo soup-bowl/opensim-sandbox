@@ -1,6 +1,6 @@
-# OpenSimulator - HyperGrid
+# OpenSimulator - Hypergrid
 
-This experiment runs OpenSimulator in [standalone mode](http://opensimulator.org/wiki/Configuration), but with the ability to connect up to the [HyperGrid network](http://opensimulator.org/wiki/Hypergrid).
+This experiment runs OpenSimulator in [standalone mode](http://opensimulator.org/wiki/Configuration), but with the ability to connect up to the [Hypergrid network](http://opensimulator.org/wiki/Hypergrid).
 
 **Check the repository root readme for answers to most questions.**
 
@@ -18,7 +18,7 @@ The compose script will do the following:
 
 * Starts up a **[OpenSimulator](http://opensimulator.org/wiki/Main_Page)** server, using an [OpenSimulator Docker image](https://hub.docker.com/r/soupbowl/opensimulator).
   * A health check is in place to ensure everything starts *after* MariaDB finishes.
-  * Configuration differs from **Standalone** that permits a connection to the HyperGrid.
+  * Configuration differs from **Standalone** that permits a connection to the Hypergrid.
 * Starts up a copy of **[MariaDB Server 10.5](https://mariadb.org/)**.
   * You can swap to [MySQL](https://hub.docker.com/_/mysql/) if you prefer - they're largely compatible with each other.
   * Be aware of a [modern charset database limitation](http://opensimulator.org/mantis/view.php?id=8919) - this is why 10.5 is used.
