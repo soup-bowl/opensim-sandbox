@@ -39,6 +39,19 @@ ENTRYPOINT [ "screen", "-S", "OpenSim", "-D", "-m", "mono",  "./OpenSim.exe" ]
 
 You can now access the OpenSimulator admin prompt by running `docker-compose exec metaverse /bin/bash` and then running `screen -r OpenSim`.
 
+## This does not work on Mac
+
+In 2020, Apple began switching to ARM-based CPUs instead of the common x86-64 type. Currently **OpenSimulator does not officially declare support ARM CPUs**, so the software will not work as expected.
+
+There are builds of OpenSimulator that **do** work on ARM, but the current mainline build of OpenSimulator ships with x86-64-only **physics drivers**. This means that if you start the sandboxes on an ARM machine, you'll crash when the physics library starts operating. If you *disable* the physics library, you can run OpenSimulator in a crtically reduced state. You can do this by changing the following setting in **OpenSim.ini**.
+
+```ini
+[Startup]
+    physics = basicphysics
+```
+
+If you do this, prepare for a ... Weird experience.
+
 [os]:     http://opensimulator.org/wiki/Main_Page
 [docker]: https://www.docker.com/
 [wfi]:    https://github.com/docker/docker.github.io/blob/master/compose/startup-order.md
