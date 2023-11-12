@@ -13,7 +13,7 @@ services:
       timeout: 5s
       retries: 3
   db_pma:
-    image: docker.io/phpmyadmin/phpmyadmin:latest
+    image: docker.io/library/phpmyadmin:latest
     depends_on:
       db:
         condition: service_healthy
