@@ -3,6 +3,9 @@ Some example [OpenSimulator][os] configuration setups, using [Docker][docker] (s
 
 For accessing the OpenSimulator metaverse, I recommend [Firestorm Viewer](https://www.firestormviewer.org/os-operating-system/).
 
+> [!WARNING]  
+> These sandboxes are built targeting the **AMD64** platform. Machines running **ARM** or **Apple Silicon** may not work.
+
 ## Experiments
 
 Each folder contains a docker-compose file that will setup the OpenSimulator prototype.
