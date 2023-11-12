@@ -32,9 +32,9 @@ services:
     - "9000:9000"
     - "9000:9000/udp"
     volumes:
-    - "./docker/OpenSim.ini:/opt/opensim/bin/OpenSim.ini"
-    - "./docker/Regions.ini:/opt/opensim/bin/Regions/Regions.ini"
-    - "./docker/StandaloneCommon.ini:/opt/opensim/bin/config-include/StandaloneCommon.ini"
+    - "./docker/OpenSim.ini:/opt/opensim/bin/OpenSim.ini:ro"
+    - "./docker/Regions.ini:/opt/opensim/bin/Regions/Regions.ini:ro"
+    - "./docker/StandaloneCommon.ini:/opt/opensim/bin/config-include/StandaloneCommon.ini:ro"
   wordpress:
     depends_on:
       db:
