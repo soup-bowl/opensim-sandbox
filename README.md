@@ -39,7 +39,7 @@ ENTRYPOINT [ "screen", "-S", "OpenSim", "-D", "-m", "mono",  "./OpenSim.exe" ]
 
 You can now access the OpenSimulator admin prompt by running `docker-compose exec metaverse /bin/bash` and then running `screen -r OpenSim`.
 
-## This does not work on Mac
+### This does not work on Mac
 
 In 2020, Apple began switching to ARM-based CPUs instead of the common x86-64 type. Currently **OpenSimulator does not officially declare support ARM CPUs**, so the software will not work as expected.
 
