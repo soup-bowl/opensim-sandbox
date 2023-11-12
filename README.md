@@ -50,6 +50,13 @@ There are builds of OpenSimulator that **do** work on ARM, but the current mainl
     physics = basicphysics
 ```
 
+or set an environment variable:
+
+```yaml
+environment:
+  PHYSICS_ENGINE: basicphysics
+```
+
 If you do this, prepare for a ... Weird experience.
 
 [os]:     http://opensimulator.org/wiki/Main_Page
