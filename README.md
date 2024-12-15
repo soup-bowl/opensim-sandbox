@@ -29,15 +29,19 @@ Folder                        | Purpose
 
 ## Troubleshooting
 
-### I'm not able to run commands in the OpenSimulator prompt
+### How do I run commands in the OpenSimulator prompt
 
-You are able to attach a shell to the current entrypoint, but so far this doesn't seem to work for me. You can 'cheese' this process by adding [screen][screen], allowing you to 'resume' the actively running session. To do this, replace the entrypoint in the Dockerfile to this:
+_This changed with OpenSimulator 0.9.3.0. If you're running the older (Mono) variants, [see here for the original][ogcr]_.
 
-```dockerfile
-ENTRYPOINT [ "screen", "-S", "OpenSim", "-D", "-m", "mono",  "./OpenSim.exe" ]
+To enable you to execute commands on the OpenSimulator server, the OpenSimulator Docker instance runs in `screen`. You can attach into this by running:
+
+```bash
+docker compose run metaverse screen -r -d OpenSim
 ```
 
-You can now access the OpenSimulator admin prompt by running `docker-compose exec metaverse /bin/bash` and then running `screen -r OpenSim`.
+This executes a CLI command inside `metaverse` - the OpenSimulator Docker instance - and connects to the screen instance, allowing you to now have full access to the CLI input. You can use the key chord `ctrl + a` then `d` to escape.
+
+Please note that this is **not normal** inside a Docker container. I took this approach because `attach` would not work correctly, and the container without `screen` would abruptly terminate. This method will cause issues with `docker compose logs metaverse`, but you can still access the logs at `/opt/opensim/bin/OpenSim.log` (will update to account soon).
 
 ### This does not work on Mac
 
@@ -64,3 +68,4 @@ If you do this, prepare for a ... Weird experience.
 [wfi]:    https://github.com/docker/docker.github.io/blob/master/compose/startup-order.md
 [podman]: https://podman.io/blogs/2021/01/11/podman-compose.html
 [screen]: https://www.howtogeek.com/662422/how-to-use-linuxs-screen-command/
+[ogcr]:   https://github.com/soup-bowl/opensim-sandbox/tree/0659b9f12f1992a67ecaeeaa67839a8748c8ff57?tab=readme-ov-file#im-not-able-to-run-commands-in-the-opensimulator-prompt
