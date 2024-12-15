@@ -8,7 +8,7 @@ For accessing the OpenSimulator metaverse, I recommend [Firestorm Viewer](https:
 
 ## Experiments
 
-Each folder contains a docker-compose file that will setup the OpenSimulator prototype.
+Each folder contains a Docker Compose file that will setup the OpenSimulator prototype.
 
 Folder                        | Purpose
 ------------------------------|--------
@@ -20,11 +20,11 @@ Folder                        | Purpose
 
 ## Using Docker Compose / Cheat Sheet
 
-* Start up an experiment: `docker-compose up --build -d`
+* Start up an experiment: `docker compose up --build -d`
   * `--build` will build the Docker file needed for OpenSimulator.
-  * `-d` is optional - it brings you back to a prompt. If omitted, your terminal is locked to output (can return by typing `docker-compose logs`).
-* Stop experiment: `docker-compose stop`
-* Destroying: `docker-compose down -v`
+  * `-d` is optional - it brings you back to a prompt. If omitted, your terminal is locked to output (can return by typing `docker compose logs`).
+* Stop experiment: `docker compose stop`
+* Destroying: `docker compose down -v`
   * `-v` will remove the associated volumes (e.g. database storage data). If you keep it, the files will still hang around for the next `up`.
 
 ## Troubleshooting
@@ -36,7 +36,7 @@ _This changed with OpenSimulator 0.9.3.0. If you're running the older (Mono) var
 To enable you to execute commands on the OpenSimulator server, the OpenSimulator Docker instance runs in `screen`. You can attach into this by running:
 
 ```bash
-docker compose run metaverse screen -r -d OpenSim
+docker compose exec metaverse screen -r -d OpenSim
 ```
 
 This executes a CLI command inside `metaverse` - the OpenSimulator Docker instance - and connects to the screen instance, allowing you to now have full access to the CLI input. You can use the key chord `ctrl + a` then `d` to escape.
