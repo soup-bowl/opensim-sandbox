@@ -28,6 +28,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      robust:
+        condition: service_started
     volumes:
     - "./docker/OpenSim.ini:/opt/opensim/bin/OpenSim.ini"
     - "./docker/Regions.ini:/opt/opensim/bin/Regions/Regions.ini"
@@ -42,10 +44,9 @@ services:
         condition: service_healthy
     volumes:
     - "./docker/Robust.ini:/opt/opensim/bin/Robust.ini"
-    command: ["screen", "-S", "OpenSim", "-D", "-m", "mono",  "./Robust.exe", "-inifile", "Robust.ini"]
+    command: ["screen", "-S", "OpenSim", "-D", "-m", "dotnet",  "./Robust.dll", "-inifile", "Robust.ini"]
     ports:
     - "8002:8002"
-    - "8002:8002/udp"
   www:
     image: nginx:latest
     volumes:
