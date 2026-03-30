@@ -1,0 +1,56 @@
+services:
+  db:
+    image: docker.io/library/mariadb:10.5
+    volumes:
+    - "database_store:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: metaverse
+      MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+  db_pma:
+    image: docker.io/library/phpmyadmin:latest
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+    - 8081:80
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      PMA_USER: root
+      PMA_PASSWORD: password
+  metaverse:
+    image: docker.io/soupbowl/opensimulator:latest
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - "./server/OpenSim.ini:/opt/opensim/bin/OpenSim.ini:ro"
+      - "./server/Regions.ini:/opt/opensim/bin/Regions/Regions.ini:ro"
+      - "./server/StandaloneCommon.ini:/opt/opensim/bin/config-include/StandaloneCommon.ini:ro"
+  www:
+    image: nginx:latest
+    volumes:
+    - "./www:/usr/share/nginx/html:ro"
+  viewer:
+    image: ghcr.io/soup-bowl/firestorm-docker:7.2-opensim
+    depends_on:
+      - metaverse
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - "firestorm_store:/config:rw"
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+    ports:
+      - 3001:3001
+      
+
+volumes:
+  database_store:
+  firestorm_store:

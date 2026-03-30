@@ -13,9 +13,11 @@ Each folder contains a Docker Compose file that will setup the OpenSimulator pro
 Folder                        | Purpose
 ------------------------------|--------
 [standalone][os-s]            | Sets up an OpenSimulator instance in standalone mode, using MySQL (mariadb 10.5) as the storage engine.
+[standalone-web][os-w]        | Same as Standalone, but has Firestorm in a container, accessed via the web browser. Also has tighter networking settings.
 [standalone-wordpress][os-wp] | Same as Standalone, but has a WordPress instance prepped to control the userbase.
 
 [os-s]:  standalone
+[os-w]:  standalone-web
 [os-wp]: standalone-wordpress
 
 ## Using Docker Compose / Cheat Sheet
