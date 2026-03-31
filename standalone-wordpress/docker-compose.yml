@@ -27,6 +27,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    stdin_open: true
+    tty: true
     ports:
     - "9000:9000"
     - "9000:9000/udp"
